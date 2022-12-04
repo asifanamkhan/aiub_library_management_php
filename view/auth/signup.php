@@ -1,4 +1,4 @@
-..<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,83 +6,167 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Teacher's Sign Up</title>
 </head>
+<style>
+    h1 {
+        padding: 10px 0;
+        font-size: 32px;
+        font-weight: 300;
+        text-align: center;
+    }
+
+    .form-control {
+        border: none;
+        border-bottom: 1px solid black;
+    }
+
+    .form-control:focus {
+        background-color: lightblue;
+    }
+
+    .error-message {
+        color: red;
+        font-size: 12px;
+    }
+</style>
 <body>
-    
-     
-    <div>
-        <h1
-    padding: 10px 0;
-      font-size: 32px;
-      font-weight: 300;
-      text-align: center;
-      }
+
+
+<div>
+    <?php
+
+    session_start();
+
+    ?>
+    <h1>
         <form method="post" action="../../controller/signupcheck.php">
-            <fieldset >
+            <fieldset>
                 <legend id="10">Signup</legend>
-                <table align ="center">
+                <table align="center">
                     <tr>
                         <td>First Name:</td>
-                        <td><input type="first name" id="first name" name="first name" placeholder="Enter First Name"></td>
-                        
+                        <td><input type="text" id="first_name" class="form-control" name="first_name"
+                                   placeholder="Enter First Name"></td>
+
                     </tr>
                     <tr>
                         <td>Last Name:</td>
-                        <td><input type="last name" id="Last name" name="Last name" placeholder="Enter Last Name"></td>
-                        
+                        <td><input type="text" id="last_name" class="form-control" name="last_name"
+                                   placeholder="Enter Last Name"></td>
+
                     </tr>
                     <tr>
                         <td>User Name:</td>
-                        <td><input type="text" id="user_name" name="user_name" placeholder="Enter User Name"></td>
-                       
-</tr>
+                        <td>
+                            <div>
+                                <input type="text" id="user_name" class="form-control" name="user_name"
+                                       placeholder="Enter User Name">
+                                <?php
+                                if (isset($_SESSION['signup_error']['user_name'])) {
+                                    echo '<p class="error-message">' . $_SESSION['signup_error']['user_name'] . '</p>';
+                                }
+                                ?>
+                            </div>
+                        </td>
+
+                    </tr>
                     <tr>
                         <td>Password:</td>
-                        <td><input type="password" id="password" name="password" placeholder="Enter Password"></td>
+                        <td>
+                            <div>
+                                <input type="text" id="password" class="form-control" name="password"
+                                       placeholder="Enter Password">
+                                <?php
+                                if (isset($_SESSION['signup_error']['password'])) {
+                                    echo '<p class="error-message">' . $_SESSION['signup_error']['password'] . '</p>';
+                                }
+                                ?>
+                            </div>
+
+                        </td>
                     </tr>
                     <tr>
                         <td>Teachers Id:</td>
-                        <td><input type="teachers id" id="teachers id" name="teachers id" placeholder="Enter Teachers Id"></td>
+
+                        <td>
+                            <div>
+                                <input type="text" id="teachers_id" class="form-control" name="teachers_id"
+                                       placeholder="Enter Teachers Id">
+                                <?php
+                                if (isset($_SESSION['signup_error']['teachers_id'])) {
+                                    echo '<p class="error-message">' . $_SESSION['signup_error']['teachers_id'] . '</p>';
+                                }
+                                ?>
+                            </div>
+                        </td>
                     </tr>
                     <tr>
                         <td>Email:</td>
-                        <td><input type="email" id="email" name="email" placeholder="Enter Email"></td>
+
+                        <td>
+                            <div><input type="text" id="email" name="email" class="form-control"
+                                        placeholder="Enter Email">
+
+                                <?php
+                                if (isset($_SESSION['signup_error']['email'])) {
+                                    echo '<p class="error-message">' . $_SESSION['signup_error']['email'] . '</p>';
+                                }
+                                ?>
+                            </div>
+                        </td>
                     </tr>
                     <tr>
                         <td>Department:</td>
-                        <td><input type="department" id="department" name="email" placeholder="Enter Department"></td>
+
+                        <td>
+                            <div><input type="text" id="department" class="form-control" name="department"
+                                        placeholder="Enter Department">
+                                <?php
+                                if (isset($_SESSION['signup_error']['department'])) {
+                                    echo '<p class="error-message">' . $_SESSION['signup_error']['department'] . '</p>';
+                                }
+                                ?>
+                            </div>
+                        </td>
                     </tr>
 
                     <tr>
                         <td>Phone Number:</td>
-                        <td><input type="phone number" id="phone number" name="phone number" placeholder="Enter Phone Number"></td>
+                        <td><input type="text" id="phone_number" class="form-control" name="phone_number"
+                                   placeholder="Enter Phone Number"></td>
                     </tr>
                     <tr>
                         <td>Address:</td>
-                        <td><input type="address" id="address" name="address" placeholder="Enter Address"></td>
+                        <td><input type="text" id="address" class="form-control" name="address"
+                                   placeholder="Enter Address"></td>
                     </tr>
                     <tr>
                         <td>Date of Birth:</td>
-                        <td><input type="date of birth" id="date of birth" name="date of birth" placeholder="Enter Date of Birth"></td>
+                        <td><input type="date" id="date_of_birth" class="form-control" name="date_of_birth"
+                                   placeholder="Enter Date of Birth">
+                        </td>
                     </tr>
-                     <tr>
-                        <td>Gender </td>
+                    <tr>
+                        <td>Gender</td>
                         <td>
                             <input type="radio" id="gender_male" name="gender" value="Male">Male
                             <input type="radio" id="gender_female" name="gender" value="Female">Female
                             <input type="radio" id="gender_other" name="gender" value="Others">Others
-                        </td> 
-                    </tr>			
-                
-                    <tr>
-                        <td> <a href="../../view/auth/login.php">Login</a> </td>
-                        <td><input type="submit" name="submit" value="Submit"></td>
+                        </td>
                     </tr>
-    
+
+                    <tr>
+                        <td><a href="../../view/auth/login.php">Login</a></td>
+                        <td>
+                            <input value="submit" name="signup_submit" type="submit"/>
+                        </td>
+                    </tr>
+
                 </table>
-    
+
             </fieldset>
-    
+
         </form>
-    </div>
+    </h1>
+</div>
 </body>
 </html>
