@@ -1,4 +1,5 @@
-<?php 
+<?php
+
 	require_once('db.php');
 
 	function validate($username, $password){
@@ -13,7 +14,9 @@
                 'data' => $teacher['id']
             ];
 		}else{
-			return false;
+			return [
+                'status' => false,
+            ];
 		}
 	}
 

@@ -11,8 +11,13 @@
             <h2>Welcome to Library Management System</h2>
         </div>
         <div>
-            <a href="view/auth/signup.php">Sign up</a> |
-            <a href="view/auth/login.php">Login</a>
+            <form action="controller/signupcheck.php" method="get">
+                <input type="submit" value="sign up" name="signup_page">
+            </form> |
+            <form action="controller/logincheck.php" method="get">
+                <input type="submit" value="login" name="login_page">
+            </form>
+
         </div>
         <br><br>
         <div>
