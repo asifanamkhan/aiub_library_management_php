@@ -7,25 +7,21 @@
     <title>Teacher's Login</title>
 </head>
 
-<style>
-    .error-message {
-        color: red;
-        font-size: 12px;
-    }
-</style>
-<body>
+<link rel="stylesheet" href="../../asset/main.css">
 
+<body>
 <?php
 session_start();
-if (isset($_SESSION['login_error']['credential_error'])) {
-    echo '<p class="error-message">' . $_SESSION['login_error']['credential_error'] . '</p>';
-}
 ?>
-
-<div>
+<div class="container">
     <form method="post" action="../../controller/logincheck.php">
         <fieldset>
             <legend>Login</legend>
+            <?php
+            if (isset($_SESSION['login_error']['credential_error'])) {
+                echo '<p class="error-message">' . $_SESSION['login_error']['credential_error'] . '</p>';
+            }
+            ?>
             <table align="center">
                 <tr>
                     <td>Username:</td>

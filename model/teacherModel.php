@@ -45,7 +45,6 @@
 
 	function getTeachersByUserName($username){
 		$con = getConnection();
-		//$sql= "select * from admin where username={$username}";
 		$sql="SELECT * FROM `teachers` WHERE `username` = {$username}";
 		$result = mysqli_query($con, $sql);
 		$user = mysqli_fetch_assoc($result);
