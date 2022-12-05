@@ -55,7 +55,9 @@ function signup_submit()
         $isExist = isExist($user_name);
 
         if ($isExist) {
-            echo "Teacher Already exist";
+            unset($_SESSION['signup_error']);
+            $_SESSION['signup_error']['teacher_exist'] = "Teacher user name already exist. please try another login";
+            header("location: ../view/auth/signup.php");
         } else {
             $sql = "INSERT INTO `teachers`(
                        `name`, `email`, `password`, `gender`,`first_name`,
