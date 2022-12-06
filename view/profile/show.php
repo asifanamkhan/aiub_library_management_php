@@ -9,14 +9,8 @@
     <link rel="stylesheet" href="../../asset/main.css">
 </head>
 <body>
-<div>
-    <a href="../dashboard.php">Dashboard</a> |
-    <a href="../profile/show.php">Go to Profile</a> |
-    <a href="../book/list.php">Books</a> |
-    <a href="../../controller/logout.php"> Log Out</a>
-</div>
-
 <?php
+include "../../view/employee/menu.php";
 session_start();
 require_once('../../model/teacherModel.php');
 $id = $_COOKIE['loggedInId'];
