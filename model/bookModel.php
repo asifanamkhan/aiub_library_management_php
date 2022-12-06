@@ -1,6 +1,18 @@
 <?php
 require_once('db.php');
 
+function create($book){
+    $con = getConnection();
+    $sql = "INSERT INTO `books`(`name`,`book_id`) 
+                VALUES ('{$book['name']}','{$book['book_id']}')";
+
+    if(mysqli_query($con, $sql)){
+        return true;
+    }else{
+        return false;
+    }
+}
+
 function getBookById($id){
     $con = getConnection();
     $sql= "select * from books where id={$id}";
@@ -17,14 +29,11 @@ function getAllBooks(){
     return $result;
 }
 
-
-function editBook($user){
+function edit($book){
     $con = getConnection();
-    $sql= "update teacher set username='{$user['username']}', 
-		                      email='{$user['email']}' , 
-		                      dateofbirth='{$user['dateofbirth']}' , 
-		                      gender='{$user['gender']}' 
-		                      where id={$user['id']}";
+    $sql= "UPDATE books set name='{$book['name']}', 
+		                      book_id='{$book['book_id']}'  
+		                      where id={$book['id']}";
 
     if(mysqli_query($con, $sql)){
         return true;
@@ -33,8 +42,15 @@ function editBook($user){
     }
 }
 
+function delete($id){
+    $con = getConnection();
+    $sql = "DELETE FROM books WHERE id='$id'";
 
-
-
+    if(mysqli_query($con, $sql)){
+        return true;
+    }else{
+        return false;
+    }
+}
 
 ?>
