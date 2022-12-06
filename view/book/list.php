@@ -6,47 +6,77 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Book List</title>
+    <link rel="stylesheet" href="../../asset/main.css">
 </head>
 
 <body>
-    <br><br>
-    <div align="center">
-        <a href="../dashboard.php">Dashboard</a> |
-        <a href="../profile/show.php">Go to Profile</a> |
-        <a href="list.php">Books</a> |
-        <a href="../../controller/logout.php"> Log Out</a>
-    </div>
+<br><br>
+<?php
+include "../../view/book/menu.php"
+?>
+<?php
+require_once('../../model/bookModel.php');
+$books = getAllBooks();
+?>
+<h4 align="center">
+    <form action="../../route/path.php" method="get">
+        <input type="hidden" name="book_create_page">
+        <button >Create new Book</button>
+    </form>
+</h4>
+<div class="container">
     <?php
-        require_once('../../model/bookModel.php');
-        $books = getAllBooks();
+    session_start();
+    if (isset($_SESSION['book_create_success'])) {
+        echo '<p class="error-message">' . $_SESSION['book_create_success'] . '</p>';
+    }
+    if (isset($_SESSION['book_edit_success'])) {
+        echo '<p class="error-message">' . $_SESSION['book_edit_success'] . '</p>';
+    }
+    if (isset($_SESSION['book_delete_success'])) {
+        echo '<p class="error-message">' . $_SESSION['book_delete_success'] . '</p>';
+    }
+
     ?>
-    <h4 align="center">
-        <a href="create.php">Create new Book</a>
-    </h4>
     <table border="1" align="center">
         <thead>
-            <tr>
-                <th>#Sl</th>
-                <th>Name</th>
-                <th>Edit</th>
-                <th>Delete</th>
-            </tr>
+        <tr>
+            <th width="10%">#Sl</th>
+            <th width="30%">Id</th>
+            <th width="50%">Name</th>
+            <th width="10%">Action</th>
+        </tr>
         </thead>
         <tbody>
 
-            <?php
-                while ($row = $books->fetch_array(MYSQLI_ASSOC)) {
-                    echo
-                        '<tr>' .
-                        '<td>' . $row['id'] . '</td>' .
-                        '<td>' . $row['name'] . '</td>' .
-                        '<td> <a href="edit.php?id='.$row['id'].'">Edit</a></td>'.
-                        '<td> <a href="delete.php?id='.$row['id'].'">Delete</a></td>'.
-                        '</tr>';
-                }
-            ?>
+        <?php
+        $x = 0;
+        while ($row = $books->fetch_array(MYSQLI_ASSOC)) {
+            $x++;
+            echo
+                '<tr>' .
+                '<td>' . $x . '</td>' .
+                '<td>' . $row['book_id'] . '</td>' .
+                '<td>' . $row['name'] . '</td>' .
+                '<td> 
+                        <div style="display: flex">
+                            <form action="../../route/path.php?book_id='.$row['id'].'">
+             
+                                <input type="hidden" name="book_edit_view" value="' .$row['id'] . '"/>
+                                <button >Edit</button>
+                            </form>
+                            <form action="../../route/path.php?book_id='.$row['id'].'">
+                                <input type="hidden" name="book_delete" value="' . $row['id'] . '"/>
+                                <button >Delete</button>
+                            </form>
+                        </div>
+                    </td>' .
+                '</tr>';
+        }
+        ?>
 
         </tbody>
     </table>
+</div>
 </body>
 </html>

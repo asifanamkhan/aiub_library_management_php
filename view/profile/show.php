@@ -9,10 +9,10 @@
     <link rel="stylesheet" href="../../asset/main.css">
 </head>
 <body>
-<div align="center">
-    <a href="../dashboard.php">Dashboard |</a>
-    <a href="../profile/show.php">Profile |</a>
-    <a href="../book/list.php">Books |</a>
+<div>
+    <a href="../dashboard.php">Dashboard</a> |
+    <a href="../profile/show.php">Go to Profile</a> |
+    <a href="../book/list.php">Books</a> |
     <a href="../../controller/logout.php"> Log Out</a>
 </div>
 

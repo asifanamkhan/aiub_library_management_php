@@ -5,7 +5,6 @@
     text-align: center;
 }
 
-
 .form-control {
     border: none;
     border-bottom: 1px solid black;
@@ -20,3 +19,10 @@
     font-size: 12px;
     text-align: center;
 }
+
+.anchor-btn{
+    cursor: pointer ;
+    border: none;
+}
+
+
