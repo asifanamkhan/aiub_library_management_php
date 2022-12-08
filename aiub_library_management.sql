@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Dec 06, 2022 at 12:06 PM
+-- Generation Time: Dec 08, 2022 at 12:12 PM
 -- Server version: 5.7.33
 -- PHP Version: 8.1.7
 
@@ -55,7 +55,8 @@ INSERT INTO `books` (`id`, `name`, `book_id`) VALUES
 (9, 'C 10', 'Accusantium ipsum vo'),
 (10, 'Chelsea Mullins', 'Accusantium ipsum vo'),
 (11, 'Cedric Mccullough', 'Nulla id architecto'),
-(13, 'Asperiores 789', 'Palmer  85');
+(13, 'Asperiores 789', 'Palmer  85'),
+(14, 'Rose Michael', 'Qui ut quaerat recus');
 
 -- --------------------------------------------------------
 
@@ -76,6 +77,27 @@ CREATE TABLE `employee` (
 
 INSERT INTO `employee` (`id`, `emp_id`, `name`, `department`) VALUES
 (4, '52', 'Samson Hughes', '23');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `students`
+--
+
+CREATE TABLE `students` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `department` varchar(255) DEFAULT NULL,
+  `student_id` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `students`
+--
+
+INSERT INTO `students` (`id`, `name`, `department`, `student_id`) VALUES
+(2, 'Jonas ', '12', 'Eligendi proident r'),
+(3, 'Drew Foley', 'Nesciunt aliqua Na', 'Aut commodo amet et');
 
 -- --------------------------------------------------------
 
@@ -128,6 +150,12 @@ ALTER TABLE `employee`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `students`
+--
+ALTER TABLE `students`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `teachers`
 --
 ALTER TABLE `teachers`
@@ -141,13 +169,13 @@ ALTER TABLE `teachers`
 -- AUTO_INCREMENT for table `address`
 --
 ALTER TABLE `address`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `books`
 --
 ALTER TABLE `books`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `employee`
@@ -156,10 +184,16 @@ ALTER TABLE `employee`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
+-- AUTO_INCREMENT for table `students`
+--
+ALTER TABLE `students`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `teachers`
 --
 ALTER TABLE `teachers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -3,6 +3,7 @@ session_start();
 require_once('../controller/book.php');
 require_once('../controller/address.php');
 require_once('../controller/employee.php');
+require_once('../controller/student.php');
 
 
 if(isset($_COOKIE['loggedInId'])){
@@ -79,6 +80,35 @@ if(isset($_COOKIE['loggedInId'])){
     if (isset($_GET['employee_delete'])) {
         employee_delete($_GET['employee_delete']);
     }
+
+    //Student
+    if (isset($_GET['student_list'])) {
+        unset($_SESSION['student_create_success']);
+        unset($_SESSION['student_edit_success']);
+        unset($_SESSION['estudent_delete_success']);
+        header("location: ../view/student/list.php");
+    }
+    if (isset($_GET['student_create_page'])) {
+        unset($_SESSION['student_create_error']);
+        header("location: ../view/student/create.php");
+    }
+    if (isset($_POST['student_create_submit'])) {
+        student_create();
+    }
+    if (isset($_GET['student_edit_view'])) {
+        //echo 856;
+        header("location: ../view/student/edit.php?student_id=".$_GET['student_edit_view']);
+    }
+    if (isset($_POST['student_edit_submit'])) {
+        unset($_SESSION['student_edit_error']);
+        student_edit();
+    }
+    if (isset($_GET['student_delete'])) {
+        student_delete($_GET['student_delete']);
+    }
+
+
+
 }else{
     header("location: ../index.php");
 }

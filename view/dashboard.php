@@ -17,6 +17,7 @@
         <a href="../route/path.php?book_list">Books</a> |
         <a href="../route/path.php?address_list">Address</a> |
         <a href="../route/path.php?employee_list">Employee</a> |
+        <a href="../route/path.php?student_list">Student</a> |
         <a href="../controller/logout.php"> Log Out</a>
     </div>
     <div>
