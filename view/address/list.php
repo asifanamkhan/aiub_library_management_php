@@ -12,6 +12,7 @@
 <body>
 <br><br>
 <?php
+// include "../../view/dashboard.php"
 include "../../view/address/menu.php"
 ?>
 <?php
@@ -21,7 +22,7 @@ $address = getAllAddress();
 <h4 align="center">
     <form action="../../route/path.php" method="get">
         <input type="hidden" name="address_create_page">
-        <button >Create new Address</button>
+        <button id="a2">Create new Address</button>
     </form>
 </h4>
 <div class="container">
@@ -62,16 +63,16 @@ $address = getAllAddress();
                 '<td>' . $row['road'] . '</td>' .
                 '<td>' . $row['thana'] . '</td>' .
                 '<td>' . $row['city'] . '</td>' .
-                '<td> 
+                '<td>
                         <div style="display: flex">
                             <form action="../../route/path.php?address_id='.$row['id'].'">
-             
+
                                 <input type="hidden" name="address_edit_view" value="' .$row['id'] . '"/>
-                                <button >Edit</button>
+                                <button id="a3">Edit</button>
                             </form>
                             <form action="../../route/path.php?address_id='.$row['id'].'">
                                 <input type="hidden" name="address_delete" value="' . $row['id'] . '"/>
-                                <button >Delete</button>
+                                <button id="a3">Delete</button>
                             </form>
                         </div>
                     </td>' .
