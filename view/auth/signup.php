@@ -137,7 +137,8 @@ session_start();
                 <tr>
                     <td><a href="../../view/auth/login.php">Login</a></td>
                     <td>
-                        <input value="submit" name="signup_submit" type="submit"/>
+                        <button onclick="check()" name="signup_submit" type="submit">Submit</button>
+                        <!-- <input value="submit" > name="signup_submit" type="submit"/> -->
                     </td>
                 </tr>
 
@@ -147,5 +148,30 @@ session_start();
 
     </form>
 </div>
+
+
+<script>
+    function check(){
+        var first_name = document.getElementById("first_name").value;
+        var last_name = document.getElementById("last_name").value;
+        var phone_number = document.getElementById("phone_number").value;
+        var date_of_birth = document.getElementById("date_of_birth").value;
+
+        if (first_name == "") {
+            alert("First Name must be filled out");
+        }
+        if (last_name == "") {
+            alert("Last Name must be filled out");
+        }
+        if (phone_number == "") {
+            alert("Phone Number must be filled out");
+        }
+        if (date_of_birth == "") {
+            alert("Date Of Birth must be filled out");
+        }
+    }
+</script>
+
+
 </body>
 </html>

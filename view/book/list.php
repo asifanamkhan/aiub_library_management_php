@@ -13,6 +13,7 @@
 <br><br>
 <?php
 include "../../view/book/menu.php"
+// include "../../view/dashboard.php";
 ?>
 <?php
 require_once('../../model/bookModel.php');
@@ -21,7 +22,7 @@ $books = getAllBooks();
 <h4 align="center">
     <form action="../../route/path.php" method="get">
         <input type="hidden" name="book_create_page">
-        <button >Create new Book</button>
+        <button id="a2">Create new Book</button>
     </form>
 </h4>
 <div class="container">
@@ -58,16 +59,16 @@ $books = getAllBooks();
                 '<td>' . $x . '</td>' .
                 '<td>' . $row['book_id'] . '</td>' .
                 '<td>' . $row['name'] . '</td>' .
-                '<td> 
+                '<td>
                         <div style="display: flex">
                             <form action="../../route/path.php?book_id='.$row['id'].'">
-             
+
                                 <input type="hidden" name="book_edit_view" value="' .$row['id'] . '"/>
-                                <button >Edit</button>
+                                <button id="a3">Edit</button>
                             </form>
                             <form action="../../route/path.php?book_id='.$row['id'].'">
                                 <input type="hidden" name="book_delete" value="' . $row['id'] . '"/>
-                                <button >Delete</button>
+                                <button id="a3">Delete</button>
                             </form>
                         </div>
                     </td>' .

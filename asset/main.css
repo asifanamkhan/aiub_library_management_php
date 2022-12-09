@@ -25,4 +25,51 @@
     border: none;
 }
 
+.nav-bar{
 
+}
+
+#a1{
+    text-decoration: none;
+    padding: 5px;
+    margin: 2px;
+    border-radius: 5px;
+    background-color: aquamarine;
+}
+
+#a1:hover{
+    background-color: darkgoldenrod;
+}
+
+
+#a2{
+    text-decoration: none;
+    padding: 5px;
+    border-radius: 5px;
+    color: white;
+    background-color: rgb(70, 71, 69);
+}
+
+#a2:hover{
+    background-color: yellow;
+    color: black;
+}
+
+
+#a3{
+    text-decoration: none;
+    padding: 3px;
+    margin: 3px;
+    border-radius: 5px;
+    color: white;
+    background-color: rgb(108, 233, 5);
+}
+
+#a3:hover{
+    background-color: #f1f10f2d;
+    color: black;
+}
+
+.a4{
+    display: flex;
+}
