@@ -10,16 +10,19 @@
 </head>
 <body>
 <div align="center">
-    <a href="../dashboard.php">Dashboard |</a>
-    <a href="../profile/show.php">Profile |</a>
-    <a href="../book/list.php">Books |</a>
-    <a href="../../controller/logout.php"> Log Out</a>
+    <a href="../dashboard.php" id="a1">Dashboard</a>
+    <a href="../profile/show.php" id="a1">Profile</a>
+    <a href="../../route/path.php?book_list" id="a1">Books</a>
+    <a href="../../route/path.php?address_list" id="a1">Address</a>
+    <a href="../../route/path.php?employee_list" id="a1">Employee</a>
+    <a href="../../route/path.php?student_list" id="a1">Student</a>
+    <a href="../../controller/logout.php" id="a1">Log Out</a>
 </div>
 
 <div align="center">
     <form action="../../controller/teacher.php" method="post">
         <input type="hidden" name="change_password">
-        <button type="submit">Change Password</button>
+        <button type="submit" id="a2" style="margin-top: 30px;">Change Password</button>
     </form>
 </div>
     <?php

@@ -11,16 +11,23 @@
 
 <body>
 <br><br>
+
+<?php
+// include "../../view/dashboard.php"
+// include "../../view/address/menu.php"
+?>
+
 <?php
 session_start();
 include "../../view/student/menu.php";
+// include "../../view/dashboard.php";
 require_once('../../model/studentModel.php');
 $student = getAllStudents();
 ?>
 <h4 align="center">
     <form action="../../route/path.php" method="get">
         <input type="hidden" name="student_create_page">
-        <button >Create new Student</button>
+        <button id="a2">Create new Student</button>
     </form>
 </h4>
 <div class="container">
@@ -58,16 +65,16 @@ $student = getAllStudents();
                 '<td>' . $row['student_id'] . '</td>' .
                 '<td>' . $row['name'] . '</td>' .
                 '<td>' . $row['department'] . '</td>' .
-                '<td> 
+                '<td>
                         <div style="display: flex">
                             <form action="../../route/path.php?student_id='.$row['id'].'">
-             
+
                                 <input type="hidden" name="student_edit_view" value="' .$row['id'] . '"/>
-                                <button >Edit</button>
+                                <button id="a3">Edit</button>
                             </form>
                             <form action="../../route/path.php?student_id='.$row['id'].'">
                                 <input type="hidden" name="student_delete" value="' . $row['id'] . '"/>
-                                <button >Delete</button>
+                                <button id="a3">Delete</button>
                             </form>
                         </div>
                     </td>' .

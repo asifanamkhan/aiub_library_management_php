@@ -10,11 +10,13 @@
 </head>
 <body>
 <div align="center">
-    <a href="../dashboard.php">Dashboard</a> |
-    <a href="../profile/show.php">Go to Profile</a> |
-    <a href="../employee/list.php">employees</a> |
-    <a href="../employee/list.php">employees</a> |
-    <a href="../../controller/logout.php"> Log Out</a>
+<a href="../dashboard.php" id="a1">Dashboard</a>
+    <a href="../profile/show.php" id="a1">Profile</a>
+    <a href="../../route/path.php?book_list" id="a1">Books</a>
+    <a href="../../route/path.php?address_list" id="a1">Address</a>
+    <a href="../../route/path.php?employee_list" id="a1">Employee</a>
+    <a href="../../route/path.php?student_list" id="a1">Student</a>
+    <a href="../../controller/logout.php" id="a1">Log Out</a>
 </div>
 <?php
 session_start();

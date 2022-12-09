@@ -11,6 +11,7 @@
 <body>
 <?php
 include "../../view/employee/menu.php";
+// include "../../view/dashboard.php";
 session_start();
 require_once('../../model/teacherModel.php');
 $id = $_COOKIE['loggedInId'];
@@ -19,15 +20,22 @@ $teacher = getTeachersById($id);
 
 <br><br><br>
 
-<div align="center">
-    <form action="../../controller/teacher.php" method="post">
-        <input type="hidden" name="edit_profile">
-        <button type="submit">Edit Profile</button>
-    </form>
-    <form action="../../controller/teacher.php" method="post">
-        <input type="hidden" name="change_password">
-        <button type="submit">Change Password</button>
-    </form>
+<div align="center" >
+    <div>
+        <form action="../../controller/teacher.php" method="post">
+            <input type="hidden" name="edit_profile">
+            <button type="submit" id="a2" class="a4">Edit Profile</button>
+        </form>
+    </div>
+
+    <div>
+        <form action="../../controller/teacher.php" method="post">
+            <input type="hidden" name="change_password">
+            <button type="submit" id="a2" class="a4">Change Password</button>
+        </form>
+    </div>
+
+
 </div>
 <div class="container">
     <table align="center" border="1">

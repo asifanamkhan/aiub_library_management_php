@@ -9,9 +9,14 @@
     <link rel="stylesheet" href="../../asset/main.css">
 </head>
 <body>
+
+<?php
+include "../../view/address/menu.php";
+?>
+
 <?php
 session_start();
-include "../address/menu.php";
+// include "../address/menu.php";
 require_once('../../model/addressModel.php');
 $id = $_GET['address_id'];
 $address = getAddressById($id);
