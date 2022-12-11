@@ -18,6 +18,7 @@ function getLibraryById($id){
     $sql= "select * from library where id={$id}";
     $result = mysqli_query($con, $sql);
     $library = mysqli_fetch_assoc($result);
+    //print_r($library);
     return $library;
 }
 

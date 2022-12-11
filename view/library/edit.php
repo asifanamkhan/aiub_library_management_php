@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Edit employee</title>
+    <title>Edit library</title>
     <link rel="stylesheet" href="../../asset/main.css">
 </head>
 <body>
@@ -37,7 +37,7 @@ if(isset($_GET['library_id'])){
                     <td>Librarin Id:</td>
                     <td>
                         <input type="hidden" name="lib_id" value="<?php echo $library['id']; ?>">
-                        <input type="text" id="library_id" class="form-control" name="library_id" value="<?php if (isset($employee['emp_id'])){echo $employee['emp_id'];}  ?>" >
+                        <input type="text" id="library_id" class="form-control" name="library_id" value="<?php if (isset($library['lib_id'])){echo $library['lib_id'];}  ?>" >
                         <?php
                         if (isset($_SESSION['library_edit_error']['library_id'])) {
                             echo '<p class="error-message">' . $_SESSION['library_edit_error']['library_id'] . '</p>';
@@ -48,7 +48,7 @@ if(isset($_GET['library_id'])){
                 <tr>
                     <td>Librarian Name:</td>
                     <td>
-                        <input type="text" id="name" class="form-control" name="name" value="<?php if (isset($employee['name'])){echo $employee['name'];}  ?>">
+                        <input type="text" id="name" class="form-control" name="name" value="<?php if (isset($library['name'])){echo $library['name'];}  ?>">
                         <?php
                         if (isset($_SESSION['library_edit_error']['name'])) {
                             echo '<p class="error-message">' . $_SESSION['library_edit_error']['name'] . '</p>';
@@ -59,7 +59,7 @@ if(isset($_GET['library_id'])){
                 <tr>
                     <td>Department:</td>
                     <td>
-                        <input type="text" id="department" class="form-control" name="department" value="<?php if (isset($employee['department'])){echo $employee['department'];}  ?>">
+                        <input type="text" id="department" class="form-control" name="department" value="<?php if (isset($library['department'])){echo $library['department'];}  ?>">
                         <?php
                         if (isset($_SESSION['library_edit_error']['name'])) {
                             echo '<p class="error-message">' . $_SESSION['library_edit_error']['department'] . '</p>';

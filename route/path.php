@@ -103,7 +103,7 @@ if(isset($_COOKIE['loggedInId'])){
         unset($_SESSION['library_edit_error']);
         library_edit();
     }
-    if (isset($_GET['employee_delete'])) {
+    if (isset($_GET['library_delete'])) {
         library_delete($_GET['library_delete']);
     }
 
