@@ -3,6 +3,7 @@ session_start();
 require_once('../controller/book.php');
 require_once('../controller/address.php');
 require_once('../controller/employee.php');
+require_once('../controller/library.php');
 require_once('../controller/student.php');
 
 
@@ -80,6 +81,32 @@ if(isset($_COOKIE['loggedInId'])){
     if (isset($_GET['employee_delete'])) {
         employee_delete($_GET['employee_delete']);
     }
+
+    //Librarian
+    if (isset($_GET['library_list'])) {
+        unset($_SESSION['library_create_success']);
+        unset($_SESSION['library_edit_success']);
+        unset($_SESSION['library_delete_success']);
+        header("location: ../view/library/list.php");
+    }
+    if (isset($_GET['library_create_page'])) {
+        unset($_SESSION['library_create_error']);
+        header("location: ../view/library/create.php");
+    }
+    if (isset($_POST['library_create_submit'])) {
+        library_create();
+    }
+    if (isset($_GET['library_edit_view'])) {
+        header("location: ../view/library/edit.php?library_id=".$_GET['library_edit_view']);
+    }
+    if (isset($_POST['library_edit_submit'])) {
+        unset($_SESSION['library_edit_error']);
+        library_edit();
+    }
+    if (isset($_GET['employee_delete'])) {
+        library_delete($_GET['library_delete']);
+    }
+
 
     //Student
     if (isset($_GET['student_list'])) {
