@@ -15,14 +15,16 @@
     <a href="../../route/path.php?book_list" id="a1">Books</a>
     <a href="../../route/path.php?address_list" id="a1">Address</a>
     <a href="../../route/path.php?employee_list" id="a1">Employee</a>
+    <a href="../../route/path.php?library_list" id="a1">Librarian</a>
     <a href="../../route/path.php?student_list" id="a1">Student</a>
+    <a href="../../route/path.php?booking_list" id="a1">Booking</a>
     <a href="../../controller/logout.php" id="a1">Log Out</a>
 </div>
 
 <div align="center">
-    <form action="../../controller/teacher.php" method="post">
+    <form style="display: inline-block" action="../../controller/teacher.php" method="post">
         <input type="hidden" name="change_password">
-        <button type="submit" id="a2" style="margin-top: 30px;">Change Password</button>
+        <button type="submit" class="btn-info" >Change Password</button>
     </form>
 </div>
     <?php
@@ -32,8 +34,8 @@
         $teacher = getTeachersById($id);
     ?>
     <div class="container">
-        <form method="post" action="../../controller/teacher.php">
-            <fieldset>
+        <form  method="post" action="../../controller/teacher.php">
+            <fieldset class="field-area">
                 <legend id="10">Edit Profile</legend>
                 <?php
                 if (isset($_SESSION['teacher_edit_error']['teacher_exist'])) {
@@ -143,9 +145,9 @@
                     </tr>
 
                     <tr>
-                        <td><a href="../../view/auth/login.php">Login</a></td>
+                        <td></td>
                         <td>
-                            <input value="submit" name="teacher_edit_submit" type="submit"/>
+                            <input value="submit" class="btn-info" name="teacher_edit_submit" type="submit"/>
                         </td>
                     </tr>
 

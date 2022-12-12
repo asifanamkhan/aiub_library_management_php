@@ -8,20 +8,17 @@
     <title>Employee List</title>
     <link rel="stylesheet" href="../../asset/main.css">
 </head>
-
 <body>
-<br><br>
 <?php
 session_start();
 include "../../view/library/menu.php";
-// include "../../view/dashboard.php";
 require_once('../../model/libraryModel.php');
 $library = getAllLibrary();
 ?>
 <h4 align="center">
-    <form action="../../route/path.php" method="get">
+    <form style="display: inline-block" action="../../route/path.php" method="get">
         <input type="hidden" name="library_create_page">
-        <button id="a2">Create new Libraian</button>
+        <button class="btn-info">Create new Librarian</button>
     </form>
 </h4>
 <div class="container">
@@ -37,7 +34,7 @@ $library = getAllLibrary();
     }
 
     ?>
-    <table border="1" align="center">
+    <table class="table">
         <thead>
         <tr>
             <th width="10%">#Sl</th>
@@ -64,11 +61,11 @@ $library = getAllLibrary();
                             <form action="../../route/path.php?library_id='.$row['id'].'">
 
                                 <input type="hidden" name="library_edit_view" value="' .$row['id'] . '"/>
-                                <button id="a3">Edit</button>
+                                <button class="table-btn-edit shadow">Edit</button>
                             </form>
                             <form action="../../route/path.php?library_id='.$row['id'].'">
                                 <input type="hidden" name="library_delete" value="' . $row['id'] . '"/>
-                                <button id="a3">Delete</button>
+                                <button class="table-btn-delete shadow">Delete</button>
                             </form>
                         </div>
                     </td>' .

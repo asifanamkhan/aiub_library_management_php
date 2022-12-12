@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Dec 11, 2022 at 12:55 PM
--- Server version: 10.4.21-MariaDB
--- PHP Version: 8.0.10
+-- Host: localhost:3306
+-- Generation Time: Dec 12, 2022 at 11:40 AM
+-- Server version: 5.7.33
+-- PHP Version: 8.1.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -40,7 +40,31 @@ CREATE TABLE `address` (
 --
 
 INSERT INTO `address` (`id`, `house`, `road`, `thana`, `city`) VALUES
-(1, 'Iusto voluptate est', 'Consectetur aliquid ', 'In lorem ut atque qu', 'Velit est eius eu qu');
+(1, 'Perspiciatis aut ip', 'Voluptatibus invento', 'Maiores obcaecati ex', 'sdfbdb');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `booking`
+--
+
+CREATE TABLE `booking` (
+  `id` int(11) NOT NULL,
+  `status` int(11) DEFAULT '0',
+  `book_id` int(8) DEFAULT NULL,
+  `student_id` int(255) DEFAULT NULL,
+  `booking_date` varchar(255) DEFAULT NULL,
+  `return_date` varchar(255) DEFAULT NULL,
+  `quantity` int(8) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `booking`
+--
+
+INSERT INTO `booking` (`id`, `status`, `book_id`, `student_id`, `booking_date`, `return_date`, `quantity`) VALUES
+(1, 1, 1, 1, '2022-12-12', '2022-12-14', 34),
+(2, 1, 1, 1, '2022-12-13', '2022-12-30', 456);
 
 -- --------------------------------------------------------
 
@@ -51,20 +75,16 @@ INSERT INTO `address` (`id`, `house`, `road`, `thana`, `city`) VALUES
 CREATE TABLE `books` (
   `id` int(11) NOT NULL,
   `name` varchar(191) NOT NULL,
-  `book_id` varchar(255) DEFAULT NULL
+  `book_id` varchar(255) DEFAULT NULL,
+  `quantity` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `books`
 --
 
-INSERT INTO `books` (`id`, `name`, `book_id`) VALUES
-(9, 'C 10', 'Accusantium ipsum vo'),
-(10, 'Chelsea Mullins', 'svx'),
-(11, 'Cedric Mccullough', 'Nulla id architecto'),
-(13, 'Asperiores 789', 'Palmer  85'),
-(14, 'Rose Michael', 'Qui ut quaerat recus'),
-(15, 'Erich Potter', 'Nam maxime error err');
+INSERT INTO `books` (`id`, `name`, `book_id`, `quantity`) VALUES
+(1, 'Allen Collier', 'Consequat Veniam c', 678);
 
 -- --------------------------------------------------------
 
@@ -84,7 +104,7 @@ CREATE TABLE `employee` (
 --
 
 INSERT INTO `employee` (`id`, `emp_id`, `name`, `department`) VALUES
-(4, '52', 'Samson Hughes', '23');
+(1, 'Consectetur aliquid', 'Jada Riddle', 'Nostrum explicabo C');
 
 -- --------------------------------------------------------
 
@@ -104,7 +124,7 @@ CREATE TABLE `library` (
 --
 
 INSERT INTO `library` (`id`, `lib_id`, `name`, `department`) VALUES
-(1, 'Amet sint aut quos ', 'Alyssa Flowers', 'Aspernatur velit lau');
+(1, 'Velit eius nihil qua', 'Gary Parks', 'Architecto dolor nul');
 
 -- --------------------------------------------------------
 
@@ -124,9 +144,7 @@ CREATE TABLE `students` (
 --
 
 INSERT INTO `students` (`id`, `name`, `department`, `student_id`) VALUES
-(2, 'Jonas ', 'xc ', 'Eligendi proident r'),
-(3, 'Drew Foley', 'Nesciunt aliqua Na', 'Aut commodo amet et'),
-(4, 'Bo Barton', 'Praesentium velit ve', 'Cupidatat molestiae ');
+(1, 'Omar Wise', 'Nulla voluptas volup', 'Eius reiciendis et c');
 
 -- --------------------------------------------------------
 
@@ -154,12 +172,7 @@ CREATE TABLE `teachers` (
 --
 
 INSERT INTO `teachers` (`id`, `name`, `email`, `gender`, `password`, `first_name`, `last_name`, `phone_number`, `department`, `address`, `date_of_birth`, `teacher_id`) VALUES
-(14, 'admin', 'admin@gmail.com', 'Others', 'asd', 'Susan asd', 'Cross asd', '+1 (274) 507-5682', 'departmentadaw', 'Ex et ipsum officia', '2022-12-08', '85'),
-(15, 'abcd', 'hanec@mailinator.com', 'Male', '123456', 'Marny', 'Gamble', '+1 (247) 846-8251', 'Quaerat repellendus', 'Soluta recusandae A', '1984-03-29', 'Irure omnis magni pr'),
-(16, 'dil', 'qacace@mailinator.com', 'Female', '123456', 'Abdul', 'Griffith', '+1 (765) 771-4717', 'Quia dicta aliquid s', 'Ipsum omnis enim se', '2013-05-26', 'Labore ut vitae magn'),
-(17, 'jasyvidugu', 'caduw@mailinator.com', 'Male', 'Dicta iste repellend', '', 'Wilkerson', '+1 (127) 291-4101', 'Laboris sunt et dese', 'Do nulla consequuntu', '1982-05-10', 'Consectetur exceptur'),
-(18, 'sewufyzy', 'zyjy@mailinator.com', 'Male', 'Dolorum laborum Eum', '', '', '+1 (631) 363-3411', 'Laboris obcaecati du', 'Hic pariatur Aut re', '1988-03-05', 'Ab tempore maiores '),
-(19, 'gomoma', 'bawoqyvo@mailinator.com', 'Male', 'Id ut ut doloribus e', 'Addison', '', '', 'Quia suscipit minus ', 'Ipsum ut accusamus ', '2010-11-03', 'Dolor sapiente conse');
+(1, 'admin', 'ziqiv@mailinator.com', 'Female', '123456', 'ffffffff', 'Kaufman', '+1 (288) 291-1985', 'Quia sapiente exerci', 'Sed incidunt blandi', '1981-06-16', 'Et sit et aliquam d');
 
 --
 -- Indexes for dumped tables
@@ -169,6 +182,12 @@ INSERT INTO `teachers` (`id`, `name`, `email`, `gender`, `password`, `first_name
 -- Indexes for table `address`
 --
 ALTER TABLE `address`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `booking`
+--
+ALTER TABLE `booking`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -212,16 +231,22 @@ ALTER TABLE `address`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT for table `booking`
+--
+ALTER TABLE `booking`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `books`
 --
 ALTER TABLE `books`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `employee`
 --
 ALTER TABLE `employee`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `library`
@@ -233,13 +258,13 @@ ALTER TABLE `library`
 -- AUTO_INCREMENT for table `students`
 --
 ALTER TABLE `students`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `teachers`
 --
 ALTER TABLE `teachers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

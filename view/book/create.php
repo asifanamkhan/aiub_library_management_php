@@ -9,15 +9,13 @@
     <link rel="stylesheet" href="../../asset/main.css">
 </head>
 <body>
-<br><br>
 <?php
 session_start();
 include "../../view/book/menu.php"
 ?>
-<br><br>
 <div class="container">
     <form method="post" action="../../route/path.php">
-        <fieldset>
+        <fieldset class="field-area">
             <legend>Book Create</legend>
             <table align="center">
                 <tr>
@@ -43,7 +41,19 @@ include "../../view/book/menu.php"
                     </td>
                 </tr>
                 <tr>
-                    <td><input type="submit" name="book_create_submit" value="Submit"></td>
+                    <td>Quantity:</td>
+                    <td>
+                        <input type="number" id="quantity" class="form-control" name="quantity" value="">
+                        <?php
+                        if (isset($_SESSION['book_create_error']['quantity'])) {
+                            echo '<p class="error-message">' . $_SESSION['book_create_error']['quantity'] . '</p>';
+                        }
+                        ?>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input class="btn-info" type="submit" name="book_create_submit" value="Submit"></td>
                 </tr>
             </table>
         </fieldset>

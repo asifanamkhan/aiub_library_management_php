@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <title>Index Page</title>
+    <link rel="stylesheet" href="asset/main.css">
 </head>
 <body>
-    <br><br><br>
-    <div align="center">
+    <div class="container" >
         <div>
             <h2>Welcome to Library Management System</h2>
         </div>
-        <div>
+        <div style="display: inline-block">
             <form action="controller/signupcheck.php" method="get">
-                <input type="submit" value="sign up" name="signup_page">
-            </form> |
+                <input class="btn-info" type="submit" value="sign up" name="signup_page">
+            </form>
             <form action="controller/logincheck.php" method="get">
-                <input type="submit" value="login" name="login_page">
+                <input class="btn-info" type="submit" value="login" name="login_page">
             </form>
 
         </div>

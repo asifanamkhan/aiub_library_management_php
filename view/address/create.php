@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="../../asset/main.css">
 </head>
 <body>
-<br><br>
 <?php
 session_start();
 include "../address/menu.php"
@@ -17,7 +16,7 @@ include "../address/menu.php"
 <br><br>
 <div class="container">
     <form method="post" action="../../route/path.php">
-        <fieldset>
+        <fieldset class="field-area">
             <legend>Address Create</legend>
             <table align="center">
                 <tr>
@@ -65,7 +64,8 @@ include "../address/menu.php"
                     </td>
                 </tr>
                 <tr>
-                    <td><input type="submit" name="address_create_submit" value="Submit"></td>
+                    <td></td>
+                    <td><input class="btn-info" type="submit" name="address_create_submit" value="Submit"></td>
                 </tr>
             </table>
         </fieldset>

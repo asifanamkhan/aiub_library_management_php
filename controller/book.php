@@ -11,6 +11,9 @@ function book_create()
     if (!$_POST['book_id']) {
         $book_create_error['book_id'] = 'Please enter book id';
     }
+    if (!$_POST['quantity']) {
+        $book_create_error['quantity'] = 'Please enter quantity';
+    }
 
     if ($book_create_error) {
         $_SESSION["book_create_error"] = $book_create_error;
@@ -19,6 +22,7 @@ function book_create()
     } else {
         $book['name'] = $_POST['name'];
         $book['book_id'] = $_POST['book_id'];
+        $book['quantity'] = $_POST['quantity'];
         $result = create($book);
 
         if ($result == TRUE) {
@@ -43,6 +47,9 @@ function book_edit()
     if (!$_POST['book_id']) {
         $book_edit_error['book_id'] = 'Please enter book id';
     }
+    if (!$_POST['quantity']) {
+        $book_edit_error['quantity'] = 'Please enter quantity';
+    }
 
     if ($book_edit_error) {
         $_SESSION["book_edit_error"] = $book_edit_error;
@@ -51,6 +58,7 @@ function book_edit()
     } else {
         $book['name'] = $_POST['name'];
         $book['book_id'] = $_POST['book_id'];
+        $book['quantity'] = $_POST['quantity'];
         $book['id'] = $_POST['b_id'];
         $result = edit($book);
 

@@ -13,8 +13,8 @@
 session_start();
 ?>
 <div class="container">
-    <form method="post" action="../../controller/signupcheck.php">
-        <fieldset>
+    <form  method="post" action="../../controller/signupcheck.php">
+        <fieldset class="field-area">
             <legend id="10">Signup</legend>
             <?php
             if (isset($_SESSION['signup_error']['teacher_exist'])) {
@@ -137,7 +137,7 @@ session_start();
                 <tr>
                     <td><a href="../../view/auth/login.php">Login</a></td>
                     <td>
-                        <button onclick="check()" name="signup_submit" type="submit">Submit</button>
+                        <button class="btn-info" onclick="check()" name="signup_submit" type="submit">Submit</button>
                         <!-- <input value="submit" > name="signup_submit" type="submit"/> -->
                     </td>
                 </tr>

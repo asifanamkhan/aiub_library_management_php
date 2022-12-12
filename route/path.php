@@ -5,7 +5,14 @@ require_once('../controller/address.php');
 require_once('../controller/employee.php');
 require_once('../controller/library.php');
 require_once('../controller/student.php');
+require_once('../controller/booking.php');
 
+if(isset($_POST['book_quantity_get'])){
+    get_book_quantity();
+}
+function get_book_quantity(){
+    print_r(getBookById($_POST['book_quantity_get'])['quantity']);
+}
 
 if(isset($_COOKIE['loggedInId'])){
     if (isset($_GET['book_list'])) {
@@ -112,7 +119,7 @@ if(isset($_COOKIE['loggedInId'])){
     if (isset($_GET['student_list'])) {
         unset($_SESSION['student_create_success']);
         unset($_SESSION['student_edit_success']);
-        unset($_SESSION['estudent_delete_success']);
+        unset($_SESSION['student_delete_success']);
         header("location: ../view/student/list.php");
     }
     if (isset($_GET['student_create_page'])) {
@@ -123,7 +130,6 @@ if(isset($_COOKIE['loggedInId'])){
         student_create();
     }
     if (isset($_GET['student_edit_view'])) {
-        //echo 856;
         header("location: ../view/student/edit.php?student_id=".$_GET['student_edit_view']);
     }
     if (isset($_POST['student_edit_submit'])) {
@@ -133,6 +139,27 @@ if(isset($_COOKIE['loggedInId'])){
     if (isset($_GET['student_delete'])) {
         student_delete($_GET['student_delete']);
     }
+
+    //Booking
+    if (isset($_GET['booking_list'])) {
+        unset($_SESSION['booking_create_success']);
+        unset($_SESSION['booking_edit_success']);
+        unset($_SESSION['ebooking_delete_success']);
+        header("location: ../view/booking/list.php");
+    }
+    if (isset($_GET['booking_create_page'])) {
+        unset($_SESSION['booking_create_error']);
+        header("location: ../view/booking/create.php");
+    }
+    if (isset($_POST['booking_create_submit'])) {
+        booking_create();
+    }
+    if (isset($_POST['booking_return'])) {
+        unset($_SESSION['booking_return']);
+        booking_return($_POST['booking_return'],$_POST['booking_book_id'],$_POST['booking_quantity'], $_POST['book_quantity']);
+    }
+
+
 
 
 

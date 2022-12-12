@@ -23,13 +23,13 @@ $address = getAddressById($id);
 ?>
 <div class="container">
     <form method="post" action="../../route/path.php">
-        <fieldset>
+        <fieldset class="field-area">
             <legend>Edit Address</legend>
             <table align="center">
                 <tr>
                     <td>House:</td>
                     <td>
-                        <input type="text" id="house" class="form-control" name="house" value="<?php if (isset($employee['house'])){echo $employee['house'];}  ?>">
+                        <input type="text" id="house" class="form-control" name="house" value="<?php if (isset($address['house'])){echo $address['house'];}  ?>">
                         <input type="hidden"  name="address_id" value="<?php echo $address['id']; ?>">
                         <?php
                         if (isset($_SESSION['address_edit_error']['house'])) {
@@ -41,7 +41,7 @@ $address = getAddressById($id);
                 <tr>
                     <td>Road:</td>
                     <td>
-                        <input type="text" id="road" class="form-control" name="road" value="<?php if (isset($employee['road'])){echo $employee['road'];}  ?>">
+                        <input type="text" id="road" class="form-control" name="road" value="<?php if (isset($address['road'])){echo $address['road'];}  ?>">
                         <?php
                         if (isset($_SESSION['address_edit_error']['road'])) {
                             echo '<p class="error-message">' . $_SESSION['address_edit_error']['road'] . '</p>';
@@ -52,7 +52,7 @@ $address = getAddressById($id);
                 <tr>
                     <td>Thana:</td>
                     <td>
-                        <input type="text" id="thana" class="form-control" name="thana" value="<?php if (isset($employee['thana'])){echo $employee['thana'];}  ?>">
+                        <input type="text" id="thana" class="form-control" name="thana" value="<?php if (isset($address['thana'])){echo $address['thana'];}  ?>">
                         <?php
                         if (isset($_SESSION['address_edit_error']['thana'])) {
                             echo '<p class="error-message">' . $_SESSION['address_edit_error']['thana'] . '</p>';
@@ -63,7 +63,7 @@ $address = getAddressById($id);
                 <tr>
                     <td>City:</td>
                     <td>
-                        <input type="text" id="city" class="form-control" name="city" value="<?php if (isset($employee['city'])){echo $employee['city'];}  ?>">
+                        <input type="text" id="city" class="form-control" name="city" value="<?php if (isset($address['city'])){echo $address['city'];}  ?>">
                         <?php
                         if (isset($_SESSION['address_edit_error']['city'])) {
                             echo '<p class="error-message">' . $_SESSION['address_edit_error']['city'] . '</p>';
@@ -73,7 +73,8 @@ $address = getAddressById($id);
                 </tr>
                 <tr>
                 <tr>
-                    <td><input type="submit" name="address_edit_submit" value="Submit"></td>
+                    <td></td>
+                    <td><input class="btn-info" type="submit" name="address_edit_submit" value="Submit"></td>
                 </tr>
             </table>
         </fieldset>

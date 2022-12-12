@@ -9,15 +9,6 @@
     <link rel="stylesheet" href="../../asset/main.css">
 </head>
 <body>
-<div align="center">
-<a href="../dashboard.php" id="a1">Dashboard</a>
-    <a href="../profile/show.php" id="a1">Profile</a>
-    <a href="../../route/path.php?book_list" id="a1">Books</a>
-    <a href="../../route/path.php?address_list" id="a1">Address</a>
-    <a href="../../route/path.php?employee_list" id="a1">Employee</a>
-    <a href="../../route/path.php?student_list" id="a1">Student</a>
-    <a href="../../controller/logout.php" id="a1">Log Out</a>
-</div>
 <?php
 session_start();
 require_once('../../model/studentModel.php');
@@ -25,11 +16,11 @@ if(isset($_GET['student_id'])){
     $id = $_GET['student_id'];
     $student = getStudentById($id);
 }
-
+include "../../view/student/menu.php";
 ?>
 <div class="container">
     <form method="post" action="../../route/path.php">
-        <fieldset>
+        <fieldset class="field-area">
             <legend>Edit student</legend>
             <table align="center">
                 <tr>
@@ -67,7 +58,8 @@ if(isset($_GET['student_id'])){
                     </td>
                 </tr>
                 <tr>
-                    <td><input type="submit" name="student_edit_submit" value="Submit"></td>
+                    <td></td>
+                    <td><input class="btn-info" type="submit" name="student_edit_submit" value="Submit"></td>
                 </tr>
             </table>
         </fieldset>

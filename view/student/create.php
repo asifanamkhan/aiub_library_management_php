@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="../../asset/main.css">
 </head>
 <body>
-<br><br>
 <?php
 session_start();
 include "../../view/student/menu.php";
@@ -17,7 +16,7 @@ include "../../view/student/menu.php";
 <br><br>
 <div class="container">
     <form method="post" action="../../route/path.php">
-        <fieldset>
+        <fieldset class="field-area">
             <legend>Student Create</legend>
             <table align="center">
                 <tr>
@@ -54,7 +53,8 @@ include "../../view/student/menu.php";
                     </td>
                 </tr>
                 <tr>
-                    <td><input type="submit" name="student_create_submit" value="Submit"></td>
+                    <td></td>
+                    <td><input class="btn-info" type="submit" name="student_create_submit" value="Submit"></td>
                 </tr>
             </table>
         </fieldset>

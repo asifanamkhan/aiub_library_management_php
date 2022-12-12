@@ -7,6 +7,7 @@ echo '<div align="center">
         <a href="../../route/path.php?employee_list" id="a1">Employee</a>
         <a href="../../route/path.php?library_list" id="a1">Librarian</a>
         <a href="../../route/path.php?student_list" id="a1">Student</a>
+        <a href="../../route/path.php?booking_list" id="a1">Booking</a>
         <a href="../../controller/logout.php" id="a1"> Log Out</a>
     </div>'
 ?>
