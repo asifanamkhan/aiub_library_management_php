@@ -5,11 +5,10 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Add Employee</title>
+    <title>Add Librarian</title>
     <link rel="stylesheet" href="../../asset/main.css">
 </head>
 <body>
-<br><br>
 <?php
 session_start();
 include "../../view/library/menu.php";
@@ -17,8 +16,8 @@ include "../../view/library/menu.php";
 <br><br>
 <div class="container">
     <form method="post" action="../../route/path.php">
-        <fieldset>
-            <legend>Employee Create</legend>
+        <fieldset class="field-area">
+            <legend>Librarian Create</legend>
             <table align="center">
                 <tr>
                     <td>Librarian Id:</td>
@@ -54,7 +53,8 @@ include "../../view/library/menu.php";
                     </td>
                 </tr>
                 <tr>
-                    <td><input type="submit" name="library_create_submit" value="Submit"></td>
+                    <td></td>
+                    <td><input class="btn-info" type="submit" name="library_create_submit" value="Submit"></td>
                 </tr>
             </table>
         </fieldset>

@@ -10,18 +10,16 @@
 </head>
 
 <body>
-<br><br>
 <?php
 session_start();
 include "../../view/employee/menu.php";
-// include "../../view/dashboard.php";
 require_once('../../model/employeeModel.php');
 $employee = getAllEmployee();
 ?>
 <h4 align="center">
-    <form action="../../route/path.php" method="get">
+    <form style="display: inline-block" action="../../route/path.php" method="get">
         <input type="hidden" name="employee_create_page">
-        <button id="a2">Create new Employee</button>
+        <button class="btn-info">Create new Employee</button>
     </form>
 </h4>
 <div class="container">
@@ -37,7 +35,7 @@ $employee = getAllEmployee();
     }
 
     ?>
-    <table border="1" align="center">
+    <table class="table">
         <thead>
         <tr>
             <th width="10%">#Sl</th>
@@ -64,11 +62,11 @@ $employee = getAllEmployee();
                             <form action="../../route/path.php?employee_id='.$row['id'].'">
 
                                 <input type="hidden" name="employee_edit_view" value="' .$row['id'] . '"/>
-                                <button id="a3">Edit</button>
+                                <button class="table-btn-edit shadow">Edit</button>
                             </form>
                             <form action="../../route/path.php?employee_id='.$row['id'].'">
                                 <input type="hidden" name="employee_delete" value="' . $row['id'] . '"/>
-                                <button id="a3">Delete</button>
+                                <button class="table-btn-delete shadow">Delete</button>
                             </form>
                         </div>
                     </td>' .

@@ -20,9 +20,9 @@
 </div>
 
 <div align="center">
-    <form action="../../controller/teacher.php" method="post">
+    <form style="display: inline-block" action="../../controller/teacher.php" method="post">
         <input type="hidden" name="edit_profile">
-        <button type="submit" id="a2">Edit Profile</button>
+        <button class="btn-info" type="submit" id="a2">Edit Profile</button>
     </form>
 </div>
 <?php
@@ -34,7 +34,7 @@ $teacher = getTeachersById($id);
 
 <div class="container">
     <form method="post" action="../../controller/teacher.php">
-        <fieldset>
+        <fieldset class="field-area">
             <legend id="10">Change Password</legend>
             <?php
             if (isset($_SESSION['password_error'])) {
@@ -44,7 +44,7 @@ $teacher = getTeachersById($id);
                 echo '<p class="error-message">' . $_SESSION['password_success'] . '</p>';
             }
             ?>
-            <table>
+            <table align="center">
                 <tr>
                     <td>Password:</td>
                     <td>
@@ -61,7 +61,8 @@ $teacher = getTeachersById($id);
                     </td>
                 </tr>
                 <tr>
-                    <td><input type="submit" name="password_submit" value="Submit"></td>
+                    <td></td>
+                    <td><input class="btn-info" type="submit" name="password_submit" value="Submit"></td>
                 </tr>
             </table>
         </fieldset>

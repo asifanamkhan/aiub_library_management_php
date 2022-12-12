@@ -3,8 +3,8 @@ require_once('db.php');
 
 function create($book){
     $con = getConnection();
-    $sql = "INSERT INTO `books`(`name`,`book_id`) 
-                VALUES ('{$book['name']}','{$book['book_id']}')";
+    $sql = "INSERT INTO `books`(`name`,`book_id`,`quantity`) 
+                VALUES ('{$book['name']}','{$book['book_id']}','{$book['quantity']}')";
 
     if(mysqli_query($con, $sql)){
         return true;
@@ -32,7 +32,8 @@ function getAllBooks(){
 function edit($book){
     $con = getConnection();
     $sql= "UPDATE books set name='{$book['name']}', 
-		                      book_id='{$book['book_id']}'  
+		                      book_id='{$book['book_id']}',  
+		                      quantity='{$book['quantity']}'  
 		                      where id={$book['id']}";
 
     if(mysqli_query($con, $sql)){
