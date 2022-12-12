@@ -81,7 +81,7 @@ $bookings = getAllbookings();
                                 <button class="table-btn-edit shadow" >Return</button>
                             </form>
            
-                        </div>' : "")
+                        </div>' : "--")
                 . '</td>' .
                 '</tr>';
         }
